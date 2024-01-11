@@ -1,0 +1,614 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader">
+            <img src="{% static 'assets/images/loader-5.gif' %}" alt="Preloader">
+        </div>
+    </div>
+    <!-- Preloader end -->
+    <!-- Header-area start -->
+    {% include 'include/header.html '%}
+    <!-- Header-area end -->
+
+    <!-- Home-area start-->
+    <section class="hero-banner hero-banner-5 parallax">
+        <div class="container-fluid">
+            <div class="row align-items-center gx-xl-5">
+                <div class="col-lg-7 col-xl-6">
+                    <div class="fluid-left">
+                        <div class="banner-content mb-40">
+                            <h1 class="title color-dark mb-30" data-aos="fade-up" data-aos-delay="100">
+                                {{begin.title}}
+                            </h1>
+                            <div class="product-price" data-aos="fade-up" data-aos-delay="150">
+                                <span class="font-lg w-100 font-medium color-dark">Цены начинаются с:</span>
+                                <span class="h3 new-price">{{begin.price}}</span>
+                                <span class="h4 prev-price color-white">{{begin.price_discount}}</span>
+                            </div>
+                            <div class="cta-btn mt-40" data-aos="fade-up" data-aos-delay="250">
+                                <a href="shop.html" class="btn btn-lg btn-secondary" title="Show All Products" target="_self">Показать все продукты</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-6" data-aos="fade-up">
+                    <div class="banner-image mb-40 parallax-img text-center" data-speed="0.1" data-revert="true">
+                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/banner/hero-banner-4.png' %}" alt="Banner Image">
+                    </div>
+                </div>
+            </div>
+            <span class="big-text d-none d-lg-block">ORANGE JUICE</span>
+        </div>
+        <div class="bg-img" data-bg-image="{% static 'assets/images/banner/hero-banner-bg-5.jpg' %}"></div>
+        <!-- Bg shape -->
+        <div class="bg-shape h-auto">
+            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/banner/hero-bottom-shape-2.png' %}" alt="Bg Shape">
+        </div>
+    </section>
+    <!-- Home-area end -->
+
+    <!-- About-area start -->
+    <section class="about-area about-3 pt-100 pb-60 parallax">
+        <!-- Spacer -->
+        <div class="container">
+            <div class="row align-items-center gx-xl-5">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="image mb-40 parallax-img img-left" data-speed="0.1" data-revert="true">
+                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/about-5.png' %}" alt="Image">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="content-title mb-10 ps-xl-2">
+                        <h2 class="title mb-30">
+                            {{about.title}}
+                        </h2>
+                        <div class="content-text">
+                            <p>
+                                {{about.descriptions}}
+                            </p>
+                            <p>
+                                {{about.descriptions2}}
+                            </p>
+                        </div>
+                        <div class="info-list mt-30">
+                            <div class="row">
+                                <div class="col-sm-4 item mb-30">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <span class="h3 font-medium mb-2"><span class="counter">{{about.customers}}</span>+</span>
+                                            <p class="card-text font-lg lh-1">Всего клиентов</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 item mb-30">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <span class="h3 font-medium mb-2"><span class="counter">{{about.qutlet}}</span>+</span>
+                                            <p class="card-text font-lg lh-1">Всемирная торговые токи</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 item mb-30">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <span class="h3 font-medium mb-2"><span class="counter">{{about.satisfaction}}</span>%</span>
+                                            <p class="card-text font-lg lh-1">Удовлетворение</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About-area end -->
+
+    <!-- Category-area start -->
+    <section class="category-area category-3 bg-primary pt-120 pb-95 bg-img" data-bg-image="{% static 'assets/images/category-bg-2.png' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title title-center mb-50" data-aos="fade-up">
+                        <h2 class="title mb-0 color-white">Наши самые популярные категории</h2>
+                    </div>
+                </div>
+                <div class="col-12" data-aos="fade-up">
+                    <div class="row">
+                        {%for category in categorys%}
+                        <div class="col-xl-2 col-lg-3 col-sm-6">
+                            <div class="card text-center bg-dark p-20 mb-25">
+                                <a href="shop.html" target="_self" title="Link" class="card-icon mb-20">
+                                    <img class="lazyload blur-up" src="{{category.image.url}}" data-src="{{category.image.url}}" alt="Image">
+                                </a>
+                                <h6 class="card-title color-white lc-1 mb-0">
+                                    <a href="shop.html" target="_self" title="Fruits Juice">{{category.title}}</a>
+                                </h6>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bg shape -->
+        <div class="bg-shape">
+            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shape-top-2.png' %}" alt="Bg Shape">
+        </div>
+        <div class="bg-shape h-auto">
+            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/shape-bottom-2.png' %}" alt="Bg Shape">
+        </div>
+    </section>
+    <!-- Category-area end -->
+
+    <!-- Product-area start -->
+    <section class="product-area product-5 pt-100 pb-75">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title title-center mb-20" data-aos="fade-up">
+                        <h2 class="title mb-30">Ознакомьтесь с нашими востребованными продуктами</h2>
+                        <div class="tabs-navigation mb-30">
+                            <ul class="nav nav-tabs" data-hover="fancyHover">
+                                <li class="nav-item active">
+                                    <button class="nav-link hover-effect btn-md radius-sm active" data-bs-toggle="tab" data-bs-target="#tab1" type="button">Все</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link hover-effect btn-md radius-sm" data-bs-toggle="tab" data-bs-target="#tab2" type="button">Молочные коктели</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link hover-effect btn-md radius-sm" data-bs-toggle="tab" data-bs-target="#tab3" type="button">Фруктовые соки</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link hover-effect btn-md radius-sm" data-bs-toggle="tab" data-bs-target="#tab4" type="button">Мороженое</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="tab-content">
+                        <div class="tab-pane slide show active" id="tab1">
+                            <div class="row">
+                                {%for product in products%}
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{{product.image.url}}" data-src="{{product.image.url}}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Добавить в корзинуt</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">{{product.title}}</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">{{product.price}}/span>
+                                                <span class="prev-price font-sm">{{product.price_discount}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="tab-pane slide" id="tab2">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-1.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">Vanilla Cold Coffee</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$5.00</span>
+                                                <span class="prev-price font-sm">$6.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-3.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fruits Milk">Chocolate Milk</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$6.00</span>
+                                                <span class="prev-price font-sm">$5.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-7.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fruits Milk Shake">Fruits Milk Shake</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$8.00</span>
+                                                <span class="prev-price font-sm">$9.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-1.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">Vanilla Cold Coffee</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$5.00</span>
+                                                <span class="prev-price font-sm">$6.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane slide" id="tab3">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-4.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Pineapple Juice">Pineapple Juice</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$7.00</span>
+                                                <span class="prev-price font-sm">$8.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-8.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Orange Juice">Orange Juice</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$5.00</span>
+                                                <span class="prev-price font-sm">$6.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-6.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Ice Cream">Vanilla Ice Cream</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$3.50</span>
+                                                <span class="prev-price font-sm">$4.50</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-7.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fruits Milk Shake">Fruits Milk Shake</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$8.00</span>
+                                                <span class="prev-price font-sm">$9.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane slide" id="tab4">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-1.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">Vanilla Cold Coffee</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$5.00</span>
+                                                <span class="prev-price font-sm">$6.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-2.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Cone Ice Cream">Cone Ice Cream</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$4.00</span>
+                                                <span class="prev-price font-sm">$3.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-5.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Chocolate Coffee">Chocolate Coffee</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$4.00</span>
+                                                <span class="prev-price font-sm">$5.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-6.png' %}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Ice Cream">Vanilla Ice Cream</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">$3.50</span>
+                                                <span class="prev-price font-sm">$4.50</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-btn text-center mt-15 mb-25">
+                        <a href="shop.html" class="btn btn-lg btn-primary" title="Shop More" target="_self">Shop More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product-area end -->
+
+    <!-- Product-area start -->
+    <section class="product-area product-lg-5 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title title-center mb-20" data-aos="fade-up">
+                        <h2 class="title">
+                            Мы Предлагаем Различные Цены На Все Товары
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        {% for offer in offers %}
+                        <div class="col-md-6 col-lg-4">
+                            <div class="product text-center p-30 pb-70 radius-md mt-30 mb-30">
+                                <div class="product-details">
+                                    <h3 class="product-title lc-1 mb-10">
+                                        <a href="shop-details.html" target="_self" title="Pure Fruits Juice">{{offer.title}}</a>
+                                    </h3>
+                                    <div class="product-price mb-15">
+                                        <span class="h4 new-price color-primary">{{offer.price}}</span>
+                                        <span class="prev-price">{{offer.price_discount}}</span>
+                                    </div>
+                                    <p class="product-text lc-3">{{offer.descriptions}}</p>
+                                </div>
+                                <figure class="product-img mt-25 mb-15 mx-auto">
+                                    <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-2-3 bg-none">
+                                        <img class="lazyload" src="{{offer.image.url}}" data-src="{{offer.image.url}}" alt="Image">
+                                    </a>
+                                </figure>
+                                <a href="cart.html" class="btn btn-lg btn-primary" title="Add To Cart Now" target="_self">Добавить в карзину</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product-area end -->
+
+    <!-- Testimonial-blog-area start -->
+    <div class="testimonial-blog-area bg-img" data-bg-image="{% static 'assets/images/testimonial-bg-2.png' %}">
+        <!-- Testimonial-area start -->
+        <section class="testimonial-area testimonial-2 ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title title-center mb-50" data-aos="fade-up">
+                            <h2 class="title mt-0 color-white">Фантастические отзывы наших довольных клиентов</h2>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row justify-content-center" data-aos="fade-up">
+                            <div class="col-lg-6">
+                                <div class="swiper" id="testimonial-slider-3">
+                                    <div class="swiper-wrapper">
+                                        {% for review in reviews %}
+                                        <div class="swiper-slide pb-25">
+                                            <div class="slider-item text-center">
+                                                <div class="quote">
+                                                    <p class="text font-lg mb-0 color-light">
+                                                        {{review.descriptions}}
+                                                    </p>
+                                                </div>
+                                                <div class="client-info mt-20">
+                                                    <h6 class="name mb-1 color-white">{{review.name}}</h6>
+                                                    <span class="designation font-sm color-light">{{review.profession}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="swiper testimonial-thumb mt-10">
+                                    <div class="swiper-wrapper">
+                                        {% for review in reviews %}
+                                        <div class="swiper-slide">
+                                            <div class="slider-item text-center">
+                                                <div class="client-img">
+                                                    <div class="lazy-container rounded-pill ratio ratio-1-1">
+                                                        <img class="lazyload" src="{{review.image.url}}" data-src="{{review.image.url}}" alt="Person Image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination position-static" id="testimonial-slider-3-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonial-area end -->
+
+        <!-- Blog-area start -->
+        <section class="blog-area blog-3 pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="col-12">
+                            <div class="section-title title-inline mb-50" data-aos="fade-up">
+                                <div>
+                                    <h2 class="title color-white">Прочтите сообщение в нашем блоге</h2>
+                                </div>
+                                <button class="btn btn-lg btn-primary" type="button" aria-label="Read Now">Узнайте больше</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            {% for blog in blogs %}
+                            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                                <article class="card mb-30 radius-md p-20">
+                                    <div class="card-img">
+                                        <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
+                                            <img class="lazyload" src="{{blog.image.url}}" data-src="{blog.image.url}" alt="Blog Image">
+                                        </a>
+                                    </div>
+                                    <div class="card-content">
+                                        <ul class="card-list list-unstyled mb-20 rounded-pill px-3  py-2 justify-content-between shadow-md">
+                                            
+                                            <li class="icon-start">
+                                                <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{blog.created_at}}</a>
+                                            </li>
+                                           
+                                        </ul>
+                                        <h4 class="card-title lc-1 mb-15">
+                                            <a href="blog-details.html" target="_self" title="Link">
+                                                {{blog.title}}
+                                            </a>
+                                        </h4>
+                                        <p class="card-text lc-3 mb-15">
+                                            {{blog.descriptions|truncatechars:50}}
+                                        </p>
+                                        <a href="blog-details.html" class="btn-text color-primary font-lg" target="_self" title="Read More">Узнайте больше</a>
+                                    </div>
+                                </article>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog-area end -->
+    </div>
+    <!-- Testimonial-blog-area end -->
+
+    <!-- Gallery-area start -->
+    {% include "include/slide.html" %}
+    <!-- Gallery-area end -->
+
+    <!-- Footer-area start -->
+    {% include "include/footer.html" %}
+    <!-- Footer-area end-->
+
+    <!-- Go to Top -->
+    <div class="go-top"><i class="fal fa-angle-up"></i></div>
+    <!-- Go to Top -->
+
+{% endblock %}

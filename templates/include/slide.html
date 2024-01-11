@@ -1,0 +1,19 @@
+{% load static %}
+<div class="gallery-area" data-aos="fade-up">
+    <div class="container">
+        <div class="swiper gallery-slider">
+            <div class="swiper-wrapper">
+                {% for slide in slides  %}
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
+                        <div class="lazy-container ratio ratio-1-2">
+                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{slide.image.url}}" alt="Image">
+                        </div>
+                        <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

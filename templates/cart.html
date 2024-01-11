@@ -1,0 +1,86 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader">
+            <img src="{% static 'assets/images/loader-5.gif ' %}" alt="Preloader">
+        </div>
+    </div>
+    <!-- Preloader end -->
+
+    <!-- Header-area start -->
+    {% include 'include/header.html '%}
+    <!-- Header-area end -->
+
+    <!-- Breadcrumb start -->
+    <div class="breadcrumb-area bg-img bg-cover" data-bg-image="{% static 'assets/images/breadcrumb-bg.jpg' %}">
+        <div class="overlay 65"></div>
+        <div class="container">
+            <div class="content text-center">
+                <h2 class="color-white">Cart</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb end -->
+
+    <!-- Shopping-area Start -->
+    <div class="shopping-area cart ptb-100">
+        <div class="container">
+            <div class="row justify-content-center gx-xl-5">
+                <div class="col-lg-9">
+                    <form>
+                        <div class="item-list border radius-md table-responsive">
+                            <table class="shopping-table">
+                                <thead>
+                                    <tr class="table-heading">
+                                        <th scope="col" colspan="2" class="first">Product</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col" class="last">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="item">
+                                        <td></td>
+                                        <td></td>
+                                        <td class="text-end">
+                                            <a href="" class="btn-icon rounded-circle remove-from-cart" title="Remove from Cart" target="_self" data-product-id="">
+                                                <i class="fal fa-trash-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-groups mt-30">
+                            <a href="checkout.html" class="btn btn-md btn-primary" title="Checkout" target="_self">Checkout</a>
+                            <a href="cart.html" class="btn btn-md btn-primary" title="Update Cart" target="_self">Update Cart</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shopping-area End -->
+
+    <!-- Gallery-area start -->
+    {% include "include/slide.html" %}
+    <!-- Gallery-area end -->
+
+    <!-- Footer-area start -->
+    {% include "include/footer.html" %}
+    <!-- Footer-area end-->
+
+    <!-- Go to Top -->
+    <div class="go-top"><i class="fal fa-angle-up"></i></div>
+    <!-- Go to Top -->
+
+{% endblock %}

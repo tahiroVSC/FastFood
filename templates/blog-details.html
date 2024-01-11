@@ -1,0 +1,82 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader">
+            <img src="{% static 'assets/images/loader-5.gif' %}" alt="Preloader">
+        </div>
+    </div>
+    <!-- Preloader end -->
+    <!-- Header-area start -->
+    {% include 'include/header.html '%}
+    <!-- Header-area end -->
+
+    <!-- Breadcrumb start -->
+    <div class="breadcrumb-area bg-img bg-cover" data-bg-image="{% static 'assets/images/breadcrumb-bg.jpg' %}">
+        <div class="overlay 65"></div>
+        <div class="container">
+            <div class="content text-center">
+                <h2 class="color-white">Blog Details</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb end -->
+
+    <!-- Blog-details-area start -->
+    <div class="blog-details-area pt-100 pb-40">
+        <div class="container">
+            <div class="row justify-content-center gx-xl-5">
+                <div class="col-lg-8">
+                    <article class="blog">
+                        <div class="blog-img mb-30">
+                            <div class="lazy-container ratio ratio-5-3 radius-md">
+                                <img class="lazyload" src="{{blog2.image.url}}wddww" data-src="{{blog2.image.url}}" alt="Blog Image">
+                            </div>
+                        </div>
+                        <ul class="blog-list list-unstyled mb-1">
+                            <li class="icon-start">
+                                <i class="fal fa-calendar-check"></i>{{blog2.created_at}}
+                            </li>
+                        </ul>
+                        <h3 class="blog-title lc-2 mb-20">
+                            {{blog2.title}}
+                        </h3>
+                    </article>
+
+                    <!-- Description area -->
+                    <div class="blog-description pb-20">
+                        <div class="content">
+                            <p>
+                                {{blog2.descriptions}}
+                            </p>
+                            
+                            </h4>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Blog-details-area end -->
+    
+    <!-- Gallery-area start -->
+    {% include "include/slide.html" %}
+    <!-- Gallery-area end -->
+
+    <!-- Footer-area start -->
+    {% include "include/footer.html" %}
+    <!-- Footer-area end-->
+
+    <!-- Go to Top -->
+    <div class="go-top"><i class="fal fa-angle-up"></i></div>
+    <!-- Go to Top -->
+{% endblock %}

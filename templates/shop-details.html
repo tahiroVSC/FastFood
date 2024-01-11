@@ -1,0 +1,475 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader">
+            <img src="{% static 'assets/images/loader-5.gif' %}" alt="Preloader">
+        </div>
+    </div>
+    <!-- Preloader end -->
+    <!-- Header-area start -->
+    {% include 'include/header.html '%}
+    <!-- Header-area end -->
+
+    <!-- Breadcrumb start -->
+    <div class="breadcrumb-area bg-img bg-cover" data-bg-image="{% static 'assets/images/breadcrumb-bg.jpg' %}">
+        <div class="overlay 65"></div>
+        <div class="container">
+            <div class="content text-center">
+                <h2 class="color-white">Shop Details</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Shop Details</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb end -->
+
+    <!-- Shop-details-area start -->
+    <div class="shop-details-area pt-100 pb-60">
+        <div class="container">
+            <div class="row gx-xl-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="shop-details-gallery mb-40" data-aos="fade-up">
+                        <div class="swiper shop-details-slider radius-md">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <figure class="lazy-container ratio ratio-1-1">
+                                        <a href="{{shop.image.url}}" class="lightbox-single">
+                                            <img class="lazyload" src="{shop.image.url}" data-src="{{shop.image.url}}" alt="product image">
+                                        </a>
+                                    </figure>
+                                </div>
+                            </div>
+                            <!-- Slider navigation buttons -->
+                            <div class="slider-navigation">
+                                <button type="button" title="Slide prev" class="slider-btn slider-btn-prev radius-0">
+                                    <i class="fal fa-angle-left"></i>
+                                </button>
+                                <button type="button" title="Slide next" class="slider-btn slider-btn-next radius-0">
+                                    <i class="fal fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="shop-thumb">
+                            <div class="swiper shop-thumbnails">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="thumbnail-img lazy-container ratio ratio-1-1 radius-md">
+                                            <img class="lazyload" src="{shop.image.url}" data-src="{{shop.image.url}}}" alt="product image">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product-single-details mb-40" data-aos="fade-up">
+                        <div class="ratings mb-15">
+                            <div class="rate">
+                                <div class="rating-icon"></div>
+                            </div>
+                            <span class="ratings-total">(4.7 c 1тыс покупателей)</span>
+                        </div>
+                        <h3 class="product-title mb-15">{{shop.title}}}</h3>
+                        <div class="product-price mb-30">
+                            <h4 class="new-price color-primary">{{shop.price}}</h4>
+                            <span class="prev-price h5 color-medium">{{shop.price_discount}}</span>
+                        </div>
+                        <div class="product-desc">
+                            <p>
+                                {{shop.discriptions_mini}}
+                            </p>
+                        </div>
+                        <div class="btn-groups mt-30">
+                            <div class="quantity-input">
+                                <div class="qty-btn quantity-down">
+                                    <i class="fal fa-minus"></i>
+                                </div>
+                                <input type="text" value="1" name="quantity" spellcheck="false" data-ms-editor="true">
+                                <div class="qty-btn quantity-up">
+                                    <i class="fal fa-plus"></i>
+                                </div>
+                            </div>
+                            <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                            <a href="checkout.html" class="btn btn-md btn-outline" title="Order Now" target="_self">Order Now</a>
+                        </div>
+                        <div class="social-link style-2 mt-30">
+                            <a href="https://www.instagram.com/" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.dribbble.com/" target="_blank" title="dribbble"><i class="fab fa-dribbble"></i></a>
+                            <a href="https://www.twitter.com/" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.youtube.com/" target="_blank" title="youtube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <ul class="list-unstyled info-list mt-30 mb-0">
+                            <li>
+                                <span class="color-dark">SKU:</span>
+                                <span>35423DA</span>
+                            </li>
+                            <li>
+                                <span class="color-dark">Category:</span>
+                                <a href="shop.html">Grill Chicken</a>
+                            </li>
+                            <li>
+                                <span class="color-dark">Tag:</span>
+                                <a href="shop.html" target="_self" title="Link">Chicken</a>
+                                <a href="shop.html" target="_self" title="Link">Asian</a>
+                                <a href="shop.html" target="_self" title="Link">Rice</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="description mb-40" data-aos="fade-up">
+                <div class="tabs-navigation text-center border-bottom pb-20 mb-30">
+                    <ul class="nav nav-tabs" data-hover="fancyHover">
+                        <li class="nav-item active">
+                            <button class="nav-link hover-effect active btn-lg radius-sm" data-bs-toggle="tab" data-bs-target="#tab1" type="button">Description</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link hover-effect btn-lg radius-sm" data-bs-toggle="tab" data-bs-target="#tab2" type="button">Reviews</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="tab1">
+                        <!-- Product description -->
+                        <div class="product-desc">
+                            <p>
+                                {{shop.discriptions}}
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shop-details-area end -->
+
+    <!-- Related Product-area start -->
+    <div class="shop-area pb-75" data-aos="fade-up">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title title-inline mb-30">
+                        <h3 class="title mb-20">Related Product</h3>
+                        <!-- Slider navigation buttons -->
+                        <div class="slider-navigation mb-20">
+                            <button type="button" title="Slide prev" class="slider-btn slider-btn-prev rounded-circle" id="shop-slider-prev">
+                                <i class="fal fa-angle-left"></i>
+                            </button>
+                            <button type="button" title="Slide next" class="slider-btn slider-btn-next rounded-circle" id="shop-slider-next">
+                                <i class="fal fa-angle-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="swiper shop-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide item">
+                                <div class="product radius-md text-center p-30 mb-25">
+                                    <figure class="product-img mb-20 mx-auto">
+                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-1.png' %}" alt="Image">
+                                        </a>
+                                        <div class="hover-show">
+                                            <div class="btn-groups">
+                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">Vanilla Cold Coffee</a></h4>
+                                        <div class="product-price">
+                                            <span class="h6 font-lg new-price color-primary">$5.00</span>
+                                            <span class="prev-price font-sm">$6.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="product radius-md text-center p-30 mb-25">
+                                    <figure class="product-img mb-20 mx-auto">
+                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-2.png' %}" alt="Image">
+                                        </a>
+                                        <div class="hover-show">
+                                            <div class="btn-groups">
+                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Cone Ice Cream">Cone Ice Cream</a></h4>
+                                        <div class="product-price">
+                                            <span class="h6 font-lg new-price color-primary">$4.00</span>
+                                            <span class="prev-price font-sm">$3.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="product radius-md text-center p-30 mb-25">
+                                    <figure class="product-img mb-20 mx-auto">
+                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-3.png' %}" alt="Image">
+                                        </a>
+                                        <div class="hover-show">
+                                            <div class="btn-groups">
+                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fruits Milk">Chocolate Milk</a></h4>
+                                        <div class="product-price">
+                                            <span class="h6 font-lg new-price color-primary">$6.00</span>
+                                            <span class="prev-price font-sm">$5.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="product radius-md text-center p-30 mb-25">
+                                    <figure class="product-img mb-20 mx-auto">
+                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-4.png' %}" alt="Image">
+                                        </a>
+                                        <div class="hover-show">
+                                            <div class="btn-groups">
+                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Pineapple Juice">Pineapple Juice</a></h4>
+                                        <div class="product-price">
+                                            <span class="h6 font-lg new-price color-primary">$7.00</span>
+                                            <span class="prev-price font-sm">$8.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="product radius-md text-center p-30 mb-25">
+                                    <figure class="product-img mb-20 mx-auto">
+                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-5.png' %}" alt="Image">
+                                        </a>
+                                        <div class="hover-show">
+                                            <div class="btn-groups">
+                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Chocolate Coffee">Chocolate Coffee</a></h4>
+                                        <div class="product-price">
+                                            <span class="h6 font-lg new-price color-primary">$4.00</span>
+                                            <span class="prev-price font-sm">$5.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="product radius-md text-center p-30 mb-25">
+                                    <figure class="product-img mb-20 mx-auto">
+                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-6.png' %}" alt="Image">
+                                        </a>
+                                        <div class="hover-show">
+                                            <div class="btn-groups">
+                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Ice Cream">Vanilla Ice Cream</a></h4>
+                                        <div class="product-price">
+                                            <span class="h6 font-lg new-price color-primary">$3.50</span>
+                                            <span class="prev-price font-sm">$4.50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="product radius-md text-center p-30 mb-25">
+                                    <figure class="product-img mb-20 mx-auto">
+                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-7.png' %}" alt="Image">
+                                        </a>
+                                        <div class="hover-show">
+                                            <div class="btn-groups">
+                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fruits Milk Shake">Fruits Milk Shake</a></h4>
+                                        <div class="product-price">
+                                            <span class="h6 font-lg new-price color-primary">$8.00</span>
+                                            <span class="prev-price font-sm">$9.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide item">
+                                <div class="product radius-md text-center p-30 mb-25">
+                                    <figure class="product-img mb-20 mx-auto">
+                                        <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                            <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-8.png' %}" alt="Image">
+                                        </a>
+                                        <div class="hover-show">
+                                            <div class="btn-groups">
+                                                <a href="shop-details.html" class="btn-icon" title="Quick View" target="_self">
+                                                    <i class="fal fa-eye"></i>
+                                                </a>
+                                                <a href="cart.html" class="btn-icon" title="Add to Cart" target="_self">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
+                                                <a href="wishlist.html" class="btn-icon" title="Add to Wishlist" target="_self">
+                                                    <i class="fal fa-heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Orange Juice">Orange Juice</a></h4>
+                                        <div class="product-price">
+                                            <span class="h6 font-lg new-price color-primary">$5.00</span>
+                                            <span class="prev-price font-sm">$6.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Related Product-area end -->
+
+    <!-- Gallery-area start -->
+    <div class="gallery-area" data-aos="fade-up">
+        <div class="container">
+            <div class="swiper gallery-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
+                            <div class="lazy-container ratio ratio-2-3">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-1.png' %}" alt="Image">
+                            </div>
+                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
+                            <div class="lazy-container ratio ratio-2-3">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-2.png' %}" alt="Image">
+                            </div>
+                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
+                            <div class="lazy-container ratio ratio-2-3">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-3.png' %}" alt="Image">
+                            </div>
+                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
+                            <div class="lazy-container ratio ratio-2-3">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-4.png' %}" alt="Image">
+                            </div>
+                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://www.instagram.com/" class="slider-item" title="Image" target="_blank">
+                            <div class="lazy-container ratio ratio-2-3">
+                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/gallery/gallery-5.png' %}" alt="Image">
+                            </div>
+                            <div class="icon rounded-pill"><img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/instagram.png' %}" alt="Image"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery-area end -->
+
+    <!-- Footer-area start -->
+    {% include 'include/footer.html' %}
+    <!-- Footer-area end-->
+
+    <!-- Go to Top -->
+    <div class="go-top"><i class="fal fa-angle-up"></i></div>
+    <!-- Go to Top -->
+    
+{% endblock %}

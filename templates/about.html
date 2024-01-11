@@ -1,0 +1,193 @@
+{% extends 'include/homepage.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader start -->
+    <div id="preLoader">
+        <div class="loader">
+            <img src="{% static 'assets/images/loader-5.gif' %}" alt="Preloader">
+        </div>
+    </div>
+    <!-- Preloader end -->
+    <!-- Header-area start -->
+    {% include 'include/header.html '%}
+    <!-- Header-area end -->
+
+    <!-- Breadcrumb start -->
+    <div class="breadcrumb-area bg-img bg-cover" data-bg-image="{% static 'assets/images/breadcrumb-bg.jpg' %}">
+        <div class="overlay 65"></div>
+        <div class="container">
+            <div class="content text-center">
+                <h2 class="color-white">About Us</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">О нас</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb end -->
+
+    <!-- About-area start -->
+    <section class="about-area about-1 pt-100 pb-60 bg-white">
+        <div class="container">
+            <div class="row align-items-center gx-xl-5">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="image mb-40">
+                        <img class="lazyload blur-up" src="{% static 'assets/images/about-1.png' %}" data-src="{{about_page.image.url}}" alt="Image">
+
+                        <div class="absolute-text bg-primary">
+                            <div class="center-text">
+                                <span class="h3 color-dark">{{about_page.experience}}</span>
+                                <span class="h4 mb-0 color-dark">Годы опыта</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="content-title pb-10 ps-xl-2">
+                        <h2 class="title mb-20">
+                            {{about_page.title}}
+                        </h2>
+                        <div class="content-text">
+                            <p>
+                                {{about.descriptions}}
+                            </p>
+                        </div>
+                        <div class="info-list mt-30">
+                            <div class="row gx-xl-5">
+                                <div class="col-md-6 item mb-30">
+                                    <div class="card">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="ico-premium-quality"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">Премиальное качество</h6>
+                                            <p class="card-text">{{about_page.mini_descriptions}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 item mb-30">
+                                    <div class="card">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="ico-call-order"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">Онлайн-доставка</h6>
+                                            <p class="card-text">
+                                                {{about_page.mini_descriptions2}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 item mb-30">
+                                    <div class="card">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="ico-nature-product"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">100% Чистая пища</h6>
+                                            <p class="card-text">
+                                                {{about_page.mini_descriptions3}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 item mb-30">
+                                    <div class="card">
+                                        <div class="card-icon rounded-pill">
+                                            <i class="ico-support"></i>
+                                        </div>
+                                        <div class="card-content">
+                                            <h6 class="card-title mb-2">Открыто 24/7 часа в сутки</h6>
+                                            <p class="card-text">
+                                                {{about_page.mini_descriptions4}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About-area end -->
+
+    <!-- Testimonial-area start -->
+    <section class="testimonial-area testimonial-1 pb-60">
+        <div class="container">
+            <div class="row align-items-center gx-xl-5">
+                <div class="col-lg-6">
+                    <div class="content-title mb-40" data-aos="fade-up">
+                        <h2 class="title mb-20">
+                            Замечательные слова от наших довольных клиентов
+                        </h2>
+                        <div class="content-text mb-40">
+                            <p>
+                                Замечательные слова от наших довольных клиентов — это магия положительных впечатлений, переведенная на бумагу. В каждом слове, оставленном нашими клиентами, звучит не только благодарность, но и искренность восхищения. Отзывы — это не просто комментарии, а яркие краски в нашей палитре успеха. Они подчеркивают не только качество наших услуг, но и нашу готовность идти на встречу потребностям каждого клиента. Погружаясь в эти слова, вы ощутите дух нашей приверженности качеству и стремление сделать каждый опыт наших клиентов поистине незабываемым
+                            </p>
+                        </div>
+                    </div>
+                    <div class="swiper mb-40" id="testimonial-slider-1" data-aos="fade-up">
+                        <div class="swiper-wrapper">
+                            {% for review_2 in reviews_2 %}
+                            <div class="swiper-slide">
+                                <div class="slider-item radius-md border">
+                                    <div class="client gap-20 flex-wrap">
+                                        <div class="client-info d-flex align-items-center">
+                                            <div class="client-img">
+                                                <div class="lazy-container rounded-circle ratio ratio-1-1">
+                                                    <img class="lazyload" src="{{review_2.image.url}}" data-src="{{review_2.image.url}}" alt="Person Image">
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <h6 class="name mb-1">{{review_2.name}}</h6>
+                                                <span class="designation font-sm">{{review_2.profession}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="ratings size-md flex-column align-items-start gap-2">
+                                            <div class="rate">
+                                                <div class="rating-icon"></div>
+                                            </div>
+                                            <div class="ratings-total">5 star of 20 review</div>
+                                        </div>
+                                    </div>
+                                    <div class="quote">
+                                        <span class="icon"><i class="fal fa-quote-right"></i></span>
+                                        <p class="text font-lg mb-0">
+                                            {{review_2.review}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination position-static mt-30" id="testimonial-slider-1-pagination"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="image mb-40" data-aos="fade-left">
+                        <img class="lazyload blur-up" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/testimonial-img-1.png' %}" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial-area end -->
+
+    <!-- Gallery-area start -->
+    {% include "include/slide.html" %}
+    <!-- Gallery-area end -->
+
+    <!-- Footer-area start -->
+    {% include "include/footer.html" %}
+    <!-- Footer-area end-->
+
+    <!-- Go to Top -->
+    <div class="go-top"><i class="fal fa-angle-up"></i></div>
+    <!-- Go to Top -->
+
+{% endblock %}
