@@ -23,39 +23,36 @@
                 </div>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                     <div class="footer-widget" data-aos="fade-up">
-                        <h4>Useful Links</h4>
+                        <h4>Полезные ссылки</h4>
                         <ul class="footer-links">
                             <li>
-                                <a href="shop.html" target="_self" title="link">Все категории</a>
+                                <a href="{% url 'shop' %}" target="_self" title="link">Все категории</a>
                             </li>
                             <li>
-                                <a href="menu.html" target="_self" title="link">Меню Блюд</a>
+                                <a href="={% url 'menu' %}" target="_self" title="link">Меню Блюд</a>
                             </li>
                             <li>
-                                <a href="contact.html" target="_self" title="link">Мой аккаунт</a>
+                                <a href="{% url 'contact' %}" target="_self" title="link">Мой аккаунт</a>
                             </li>
                             <li>
-                                <a href="contact.html" target="_self" title="link">Политика Конфиденциальности</a>
-                            </li>
-                            <li>
-                                <a href="about.html" target="_self" title="link">О нас</a>
+                                <a href="{% url 'about' %}" target="_self" title="link">О нас</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="footer-widget" data-aos="fade-up">
-                        <h4>Recent Post</h4>
+                        <h4>Недавние посты</h4>
                         {% for blog in  blogs %}
                         <article class="article-item">
                             <div class="image">
-                                <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 radius-sm">
+                                <a href="{% url 'blog-details' blog.id %}" target="_self" title="Link" class="lazy-container ratio ratio-1-1 radius-sm">
                                     <img class="lazyload" src="{{blog.image.url}}" data-src="{{blog.image.url}}" alt="Blog Image">
                                 </a>
                             </div>
                             <div class="content">
                                 <h6 class="lc-2 mb-10">
-                                    <a href="blog-details.html" target="_self" title="Blog">
+                                    <a href="{% url 'blog-details' blog.id %}" target="_self" title="Blog">
                                         {{blog.title}}
                                     </a>
                                 </h6>
@@ -69,7 +66,7 @@
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                     <div class="footer-widget" data-aos="fade-up">
-                        <h4>Contact Us</h4>
+                        <h4>Контакты</h4>
                         <ul class="info-list">
                             <li>
                                 <i class="fal fa-map-marker-alt"></i>
@@ -95,18 +92,18 @@
         <div class="newsletter radius-md">
             <div class="row align-items-center justify-content-between">
                 <div class="col-xl-5 col-md-6">
-                    <h4 class="mb-15">Subscribe Our Newsletter</h4>
+                    <h4 class="mb-15">Подпишитесь на нашу рассылку новостей</h4>
                 </div>
                 <div class="col-xl-5 col-md-6">
                     <div class="newsletter-form mb-15">
                         <form id="newsletterForm">
                             <div class="form-group">
-                                <input class="form-control shadow-md radius-sm" placeholder="Enter email here..." type="text" name="EMAIL" required="" autocomplete="off">
+                                <input class="form-control shadow-md radius-sm" placeholder="Ваш email адресс..." type="text" name="EMAIL" required="" autocomplete="off">
                                 <button class="btn btn-lg btn-primary radius-sm" type="submit">
                                     <span class="d-inline d-sm-none">
                                         <i class="fal fa-paper-plane"></i>
                                     </span>
-                                    <span class="d-none d-sm-inline">Subscribe</span>
+                                    <a href="{% url 'contact' %}" class="d-none d-sm-inline">Подписатьс</a>
                                 </button>
                             </div>
                         </form>

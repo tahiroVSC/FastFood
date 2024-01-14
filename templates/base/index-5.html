@@ -157,10 +157,10 @@
                                     <button class="nav-link hover-effect btn-md radius-sm active" data-bs-toggle="tab" data-bs-target="#tab1" type="button">Все</button>
                                 </li>
                                 <li class="nav-item">
-                                    <button class="nav-link hover-effect btn-md radius-sm" data-bs-toggle="tab" data-bs-target="#tab2" type="button">Молочные коктели</button>
+                                    <button class="nav-link hover-effect btn-md radius-sm" data-bs-toggle="tab" data-bs-target="#tab2" type="button">Милк Шейк</button>
                                 </li>
                                 <li class="nav-item">
-                                    <button class="nav-link hover-effect btn-md radius-sm" data-bs-toggle="tab" data-bs-target="#tab3" type="button">Фруктовые соки</button>
+                                    <button class="nav-link hover-effect btn-md radius-sm" data-bs-toggle="tab" data-bs-target="#tab3" type="button">Соки</button>
                                 </li>
                                 <li class="nav-item">
                                     <button class="nav-link hover-effect btn-md radius-sm" data-bs-toggle="tab" data-bs-target="#tab4" type="button">Мороженое</button>
@@ -171,24 +171,24 @@
                 </div>
                 <div class="col-12">
                     <div class="tab-content">
+                        
                         <div class="tab-pane slide show active" id="tab1">
                             <div class="row">
-                                {%for product in products%}
+                                {% for product in all_products %}
                                 <div class="col-md-6 col-lg-4 col-xl-3 item">
                                     <div class="product radius-md text-center p-30 mb-25">
                                         <figure class="product-img mb-20 mx-auto">
                                             <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{{product.image.url}}" data-src="{{product.image.url}}" alt="Image">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ product.image.url }}" alt="Image">
                                             </a>
                                             <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Добавить в корзинуt</a>
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Дабавить корзину</a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">{{product.title}}</a></h4>
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="{{ product.title }}">{{ product.title }}</a></h4>
                                             <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">{{product.price}}/span>
-                                                <span class="prev-price font-sm">{{product.price_discount}}</span>
+                                                <span class="h6 font-lg new-price color-primary">${{ product.price }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -198,252 +198,153 @@
                         </div>
                         <div class="tab-pane slide" id="tab2">
                             <div class="row">
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-1.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">Vanilla Cold Coffee</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$5.00</span>
-                                                <span class="prev-price font-sm">$6.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-3.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fruits Milk">Chocolate Milk</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$6.00</span>
-                                                <span class="prev-price font-sm">$5.00</span>
+                                {% for milk_shake in milk_shakes %}
+                                    <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                        <div class="product radius-md text-center p-30 mb-25">
+                                            <figure class="product-img mb-20 mx-auto">
+                                                <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ milk_shake.image.url }}" alt="Image">
+                                                </a>
+                                                <div class="hover-show">
+                                                    <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Добавить в корзину</a>
+                                                </div>
+                                            </figure>
+                                            <div class="product-details">
+                                                <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="{{ milk_shake.title }}">{{ milk_shake.title }}</a></h4>
+                                                <div class="product-price">
+                                                    <span class="h6 font-lg new-price color-primary">${{ milk_shake.price }}</span>
+                                                    {% comment %} <span class="prev-price font-sm">$6.00</span> {% endcomment %}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-7.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fruits Milk Shake">Fruits Milk Shake</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$8.00</span>
-                                                <span class="prev-price font-sm">$9.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-1.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">Vanilla Cold Coffee</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$5.00</span>
-                                                <span class="prev-price font-sm">$6.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                                        </div><div class="row">
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
+                        
                         <div class="tab-pane slide" id="tab3">
                             <div class="row">
+                                {% for fruct_juices in fruct_juices%}
                                 <div class="col-md-6 col-lg-4 col-xl-3 item">
                                     <div class="product radius-md text-center p-30 mb-25">
                                         <figure class="product-img mb-20 mx-auto">
                                             <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-4.png' %}" alt="Image">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ fruct_juices.image.url }}" alt="Image">
                                             </a>
                                             <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Дабавить корзину</a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Pineapple Juice">Pineapple Juice</a></h4>
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="{{fruct_juices.title}}">{{fruct_juices.title}}</a></h4>
                                             <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$7.00</span>
-                                                <span class="prev-price font-sm">$8.00</span>
+                                                <span class="h6 font-lg new-price color-primary">${{fruct_juices.price}}</span>
+                                                {% comment %} <span class="prev-price font-sm">$8.00</span> {% endcomment %}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-8.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Orange Juice">Orange Juice</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$5.00</span>
-                                                <span class="prev-price font-sm">$6.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-6.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Ice Cream">Vanilla Ice Cream</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$3.50</span>
-                                                <span class="prev-price font-sm">$4.50</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-7.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Fruits Milk Shake">Fruits Milk Shake</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$8.00</span>
-                                                <span class="prev-price font-sm">$9.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                            </div><div class="row">
+                        {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="tab-pane slide" id="tab4">
                             <div class="row">
+                                {%for ice_creams in ice_creams%}
                                 <div class="col-md-6 col-lg-4 col-xl-3 item">
                                     <div class="product radius-md text-center p-30 mb-25">
                                         <figure class="product-img mb-20 mx-auto">
                                             <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-1.png' %}" alt="Image">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ice_creams.image.url}}" alt="Image">
                                             </a>
                                             <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Дабавить корзину</a>
                                             </div>
                                         </figure>
                                         <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">Vanilla Cold Coffee</a></h4>
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">{{ice_creams.title}}</a></h4>
                                             <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$5.00</span>
-                                                <span class="prev-price font-sm">$6.00</span>
+                                                <span class="h6 font-lg new-price color-primary">${{ice_creams.price}}</span>
+                                                {% comment %} <span class="prev-price font-sm">$6.00</span> {% endcomment %}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-2.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Cone Ice Cream">Cone Ice Cream</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$4.00</span>
-                                                <span class="prev-price font-sm">$3.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-5.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Chocolate Coffee">Chocolate Coffee</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$4.00</span>
-                                                <span class="prev-price font-sm">$5.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3 item">
-                                    <div class="product radius-md text-center p-30 mb-25">
-                                        <figure class="product-img mb-20 mx-auto">
-                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
-                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{% static 'assets/images/product/juice/pro-6.png' %}" alt="Image">
-                                            </a>
-                                            <div class="hover-show">
-                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Add to Cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="product-details">
-                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Ice Cream">Vanilla Ice Cream</a></h4>
-                                            <div class="product-price">
-                                                <span class="h6 font-lg new-price color-primary">$3.50</span>
-                                                <span class="prev-price font-sm">$4.50</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                            </div><div class="row">
+                        {% endif %}
+                                {%endfor%}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="cta-btn text-center mt-15 mb-25">
-                        <a href="shop.html" class="btn btn-lg btn-primary" title="Shop More" target="_self">Shop More</a>
+                        <a href="{% url 'shop' %}" class="btn btn-lg btn-primary" title="Shop More" target="_self">Больше покупок
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+                    <div class="tab-content">
+                        
+                        <div class="tab-pane slide show active" id="tab1">
+                            <div class="row">
+                                {% for product in all_products %}
+                                <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                    <div class="product radius-md text-center p-30 mb-25">
+                                        <figure class="product-img mb-20 mx-auto">
+                                            <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ product.image.url }}" alt="Image">
+                                            </a>
+                                            <div class="hover-show">
+                                                <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Дабавить корзину</a>
+                                            </div>
+                                        </figure>
+                                        <div class="product-details">
+                                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="{{ product.title }}">{{ product.title }}</a></h4>
+                                            <div class="product-price">
+                                                <span class="h6 font-lg new-price color-primary">${{ product.price }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="tab-pane slide" id="tab2">
+                            <div class="row">
+                                {% for milk_shake in milk_shakes %}
+                                    <div class="col-md-6 col-lg-4 col-xl-3 item">
+                                        <div class="product radius-md text-center p-30 mb-25">
+                                            <figure class="product-img mb-20 mx-auto">
+                                                <a href="shop-details.html" target="_self" title="Link" class="lazy-container ratio ratio-1-1 bg-none">
+                                                    <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{ milk_shake.image.url }}" alt="Image">
+                                                </a>
+                                                <div class="hover-show">
+                                                    <a href="cart.html" class="btn btn-md btn-primary" title="Add to Cart" target="_self">Добавить в корзину</a>
+                                                </div>
+                                            </figure>
+                                            <div class="product-details">
+                                                <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="{{ milk_shake.title }}">{{ milk_shake.title }}</a></h4>
+                                                <div class="product-price">
+                                                    <span class="h6 font-lg new-price color-primary">${{ milk_shake.price }}</span>
+                                                    {% comment %} <span class="prev-price font-sm">$6.00</span> {% endcomment %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                                        </div><div class="row">
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
     <!-- Product-area end -->
 
     <!-- Product-area start -->
@@ -562,30 +463,30 @@
                     <div class="col-12">
                         <div class="row">
                             {% for blog in blogs %}
-                            <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                                <article class="card mb-30 radius-md p-20">
-                                    <div class="card-img">
-                                        <a href="blog-details.html" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
-                                            <img class="lazyload" src="{{blog.image.url}}" data-src="{blog.image.url}" alt="Blog Image">
-                                        </a>
-                                    </div>
+                                <div class="col-md-4" data-aos="fade-up">
+                                    <article class="card mb-30 radius-md p-20">
+                                        <div class="card-img">
+                                            <a href="{% url 'blog-details' blog.id %}" target="_self" title="Link" class="lazy-container ratio ratio-5-3">
+                                                <img class="lazyload" src="{% static 'assets/images/placeholder.png' %}" data-src="{{blog.image.url}}" alt="Blog Image">
+                                            </a>
+                                        </div>
                                     <div class="card-content">
                                         <ul class="card-list list-unstyled mb-20 rounded-pill px-3  py-2 justify-content-between shadow-md">
                                             
                                             <li class="icon-start">
-                                                <a href="blogs.html" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{blog.created_at}}</a>
+                                                <a href="" target="_self" title="Link"><i class="fal fa-calendar-check"></i>{{blog.created_at}}</a>
                                             </li>
                                            
                                         </ul>
                                         <h4 class="card-title lc-1 mb-15">
-                                            <a href="blog-details.html" target="_self" title="Link">
+                                            <a href="{% url 'blog-details' blog.id %}" target="_self" title="Link">
                                                 {{blog.title}}
                                             </a>
                                         </h4>
                                         <p class="card-text lc-3 mb-15">
                                             {{blog.descriptions|truncatechars:50}}
                                         </p>
-                                        <a href="blog-details.html" class="btn-text color-primary font-lg" target="_self" title="Read More">Узнайте больше</a>
+                                        <a href="{% url 'blog-details' blog.id %}" class="btn-text color-primary font-lg" target="_self" title="Read More">Узнайте больше</a>
                                     </div>
                                 </article>
                             </div>

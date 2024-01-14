@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from apps.base.models import Settings
-from apps.secondary.models import Begin,About,Category,Products, Offer,Reviews,Blog,Slide,About_page,Reviews_2,Blogs,Shops
+from apps.secondary.models import Begin,About,Category,Products, Offer,Reviews,Blog,Slide,About_page,Reviews_2,Blogs,Shops,MilkShake,IceCreame,FructJuice
 from apps.menu import models
 from apps.contact.models import Contact
 from apps.telegram_bot.views import get_text
@@ -16,6 +16,10 @@ def index(request):
     reviews = Reviews.objects.all()
     blogs = Blog.objects.all()
     slides = Slide.objects.all()
+    milk_shakes = MilkShake.objects.all()
+    fruct_juices = FructJuice.objects.all()
+    ice_creams = IceCreame.objects.all()
+    all_products = list(milk_shakes) + list(fruct_juices) + list(ice_creams)
     return render(request, 'base/index-5.html', locals())
 
 def about(request):

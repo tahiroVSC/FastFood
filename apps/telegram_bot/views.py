@@ -7,8 +7,8 @@ from telebot import TeleBot, types
 from .models import TelegramUser
 
 # Create your views here.
-TELEGRAM_TOKEN = "6896243913:AAGp1chpbyeYVaoUodrG3ZC3sXL-X1vEUFg"
-ADMIN_ID = -1002010726531
+TELEGRAM_TOKEN = "6755372668:AAH1EqbCbqesW5BMqOdS_SSRT7CNcgUsL_g"
+ADMIN_ID = 1324284905
 
 bot = TeleBot(TELEGRAM_TOKEN, threaded=False)
 admin_id = ADMIN_ID

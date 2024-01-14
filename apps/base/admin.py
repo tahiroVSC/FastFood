@@ -6,7 +6,7 @@ admin.site.unregister(Group)
 
 
 from apps.base.models import Settings
-from apps.secondary.models import Begin, About, Category,Products,Offer,Reviews,Blog,Slide,About_page,Reviews_2,Blogs,Shops
+from apps.secondary.models import Begin, About, Category,Products,Offer,Reviews,Blog,Slide,About_page,Reviews_2,Blogs,Shops,MilkShake,FructJuice,IceCreame
 from apps.menu import models
 from apps.contact.models import Contact
 

@@ -161,8 +161,8 @@ class Blog(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Настройка новостей"
-        verbose_name_plural = "Настройки новостей"
+        verbose_name = "Настройка новостей в Index"
+        verbose_name_plural = "Настройки новостей index"
 
 class Slide(models.Model):
     image = models.ImageField(
@@ -293,3 +293,38 @@ class Shops(models.Model):
         verbose_name = "Настройка Магазина"
         verbose_name_plural = "Настройки Магазина"
 
+class MilkShake(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название')
+    image = models.ImageField(upload_to='milk_shake', verbose_name='Фото')
+    price = models.CharField(max_length=255, verbose_name='Цена')
+    disc = models.TextField(verbose_name='описание')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Молочный коктель'
+        verbose_name_plural = 'Молочные коктели'
+
+
+
+class FructJuice(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название')
+    image = models.ImageField(upload_to='fruct_juice/', verbose_name='Фото')
+    price = models.CharField(max_length=255, verbose_name='Цена')
+    disc = models.TextField(verbose_name='описание')
+
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Фруктовый коктель'
+        verbose_name_plural = 'Фруктовые коктели'
+
+
+class IceCreame(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название')
+    image = models.ImageField(upload_to='ice_creame', verbose_name='Фото')
+    price = models.CharField(max_length=255, verbose_name='Цена')
+    disc = models.TextField(verbose_name='описание')

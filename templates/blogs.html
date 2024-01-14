@@ -20,8 +20,8 @@
                 <h2 class="color-white">Blogs</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Blogs</li>
+                        <li class="breadcrumb-item"><a href="{% url 'idnex' %}">Главная</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Блоги</li>
                     </ol>
                 </nav>
             </div>
@@ -48,11 +48,11 @@
                                 </li>
                             </ul>
                             <h4 class="card-title lc-2 mb-15">
-                                <a href="blog-details.html" target="_self" title="Link">
+                                <a href="{% url 'blog-details' blogs.id %}" target="_self" title="Link">
                                   {{blogs.title}}
                                 </a>
                             </h4>
-                            <a href="blogs.html" class="btn-text color-primary" target="_self" title="Read More">Read More</a>
+                            <a href="{% url 'blog-details' blogs.id %}" class="btn-text color-primary" target="_self" title="Read More">Читать дальше</a>
                         </div>
                     </article>
                 </div>

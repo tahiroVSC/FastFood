@@ -18,11 +18,11 @@
         <div class="overlay 65"></div>
         <div class="container">
             <div class="content text-center">
-                <h2 class="color-white">Shop</h2>
+                <h2 class="color-white">Магазин</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Главна</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Магазин</li>
                     </ol>
                 </nav>
             </div>
@@ -36,7 +36,6 @@
             <div class="product-sort-area pb-10" data-aos="fade-up">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h4 class="mb-20">Отображение 1-12 из 16 результатов</h4>
                     </div>
                     <div class="col-md-6">
                     </div>
@@ -53,7 +52,7 @@
                             </a>
                             <div class="hover-show">
                                 <div class="btn-groups">
-                                    <a href="shop-details.html" class="btn-icon rounded-circle" title="Quick View" target="_self">
+                                    <a href="{% url 'shop-details' shops.id %}" class="btn-icon rounded-circle" title="Quick View" target="_self">
                                         <i class="fal fa-eye"></i>
                                     </a>
                                     <a href="cart.html" class="btn-icon rounded-circle" title="Add to Cart" target="_self">
@@ -66,7 +65,7 @@
                             </div>
                         </figure>
                         <div class="product-details">
-                            <h4 class="product-title lc-1 mb-10"><a href="shop-details.html" target="_self" title="Vanilla Cold Coffee">{{shops.title}}</a></h4>
+                            <h4 class="product-title lc-1 mb-10"><a href="{% url 'shop-details' shops.id %}" target="_self" title="Vanilla Cold Coffee">{{shops.title}}</a></h4>
                             <div class="product-price">
                                 <span class="h6 font-lg new-price color-primary">{{shops.price}}</span>
                                 <span class="prev-price font-sm">{{shops.price_discount}}</span>
@@ -82,15 +81,6 @@
                         <a class="page-link" href="shop.html" aria-label="Previous">
                             <i class="far fa-angle-left"></i>
                         </a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="shop.html">1</a></li>
-                    <li class="page-item"><a class="page-link" href="shop.html">2</a></li>
-                    <li class="page-item"><a class="page-link" href="shop.html">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="shop.html" aria-label="Next">
-                            <i class="far fa-angle-right"></i>
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </div>

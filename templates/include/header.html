@@ -52,26 +52,11 @@
                                 <a class="nav-link toggle" href="{% url 'menu' %}">Меню</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link toggle" href="#">Магазин<i class="fal fa-plus"></i></a>
-                                <ul class="menu-dropdown">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{% url "shop" %}">Магазин</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="shop-details.html">Подробнее о магазине</a>
-                                    </li>
-                                </ul>
+                                <a class="nav-link toggle" href="{% url "shop" %}">Магазин<i class="fal fa-plus"></i></a>
+        
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link toggle" href="#">Блог<i class="fal fa-plus"></i></a>
-                                <ul class="menu-dropdown">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{% url "blogs" %}">Блоги</a>
-                                    </li>
-                                    {% comment %} <li class="nav-item">
-                                        <a class="nav-link" href="{% url "blog-details" %}">Подробности в блоге</a>
-                                    </li> {% endcomment %}
-                                </ul>
+                                <a class="nav-link toggle" href="{% url "blogs" %}">Блог<i class="fal fa-plus"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'contact' %}">Контакт</a>
